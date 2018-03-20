@@ -1,6 +1,14 @@
+#btn-close-login {
+  float: right;
+}
+
 #submit-form {
   padding-bottom: 30px;
   margin-left: 25%;
+}
+
+#login-form {
+  margin-left: 30%;
 }
 
 #quantidade {

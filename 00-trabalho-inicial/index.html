@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A portfolio template that uses Material Design Lite.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title> Produtos </title>
+    <title> Login </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=pt-BR">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css"/>
     <link rel="stylesheet" href="css/styles.css"/>
@@ -38,134 +38,48 @@
                     <span class="mdl-layout__title"> Mercado Negro </span>
                 </span>
             </div>
-            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                    <a class="mdl-navigation__link is-active" href="index.html"> Produtos </a>
-                    <a class="mdl-navigation__link" href="perfil.html"> Perfil </a>
-                    <a class="mdl-navigation__link" href="sobre.html"> Sobre </a>
-                    <a class="mdl-navigation__link" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="4"> Carrinho de Compras </span> </a>
-                </nav>
-            </div>
-        </header> 
-        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link is-active" href="index.html"> Produtos </a>
-                <a class="mdl-navigation__link" href="perfil.html"> Perfil </a>
-                <a class="mdl-navigation__link" href="sobre.html"> Sobre </a>
-                <a class="mdl-navigation__link" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="4"> Carrinho de Compras </span> </a>
-            </nav>
-        </div>        
-        <main class="mdl-layout__content">
-                <form id="busca" action="#">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-                            <i class="material-icons">search</i>
-                        </label>
-                        <div class="mdl-textfield__expandable-holder">
-                            <input class="mdl-textfield__input" type="text" id="sample6">
-                            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-                        </div>
+        </header>
+        <div class="mdl-grid portfolio-max-width">
+            <form action="#">
+                <p>   
+                    <a  id="btn-close-login" class="mdl-button mdl-js-button mdl-button--icon" href="produtos.html">
+                        <i class="material-icons">close</i>
+                    </a>
+                </p>
+                <p>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email" id="email" autofocus>
+                        <label class="mdl-textfield__label" for="email"> Email </label>
                     </div>
-                </form>
-            <div class="mdl-grid portfolio-max-width">
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/weed.jpg" border="0" alt="">
+                </p>
+                <p>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="senha">
+                        <label class="mdl-textfield__label" for="senha"> Senha </label>
                     </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> Maconha </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
+                </p>
+                <div id="login-form" class="mdl-card__actions">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produtos.html"> Login </a>
                 </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/figado.png" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> Fígado </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
+                <div id="submit-form" class="mdl-card__actions">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="cadastro.html"> Cadastrar-se </a>
                 </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/sangue.jpeg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> Sangue </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/rim.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> Rim </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/meth.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> Metanfetamina </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/lsd.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> LSD </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-                    <div class="mdl-card__media">
-                        <img class="article-image card-image" src=" images/bala.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text"> MDMA </h2>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="produto.html"> Comprar </a>
-                    </div>
-                </div>
-            </div>
+            </form>
+        </div>
 
-            <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
-                <div class="mdl-snackbar__text"></div>
-                <button class="mdl-snackbar__action" type="button"></button>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo"> Black Market </div>
             </div>
-
-            <footer class="mdl-mini-footer">
-                <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo"> Black Market </div>
-                </div>
-                <div class="mdl-mini-footer__right-section">
-                    <ul class="mdl-mini-footer__link-list">
-                        <li><a href="#"> Ajuda </a></li>
-                        <li><a href="#"> Privacy & Terms </a></li>
-                    </ul>
-                </div>
-            </footer>
-        </main>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#"> Ajuda </a></li>
+                    <li><a href="#"> Privacy & Terms </a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
-    <script src="js/main.js"></script>
+
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 
