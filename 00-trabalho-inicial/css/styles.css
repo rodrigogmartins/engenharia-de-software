@@ -1,10 +1,15 @@
+#finalizar-compra {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 #tabela-produto {
   text-align: center;
 }
 
 #tabela-produtos {
   margin-top: 20px;
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 
 #btn-close-login {
