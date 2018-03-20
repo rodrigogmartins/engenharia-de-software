@@ -20,6 +20,11 @@
   background-color: #eeeeee;
 }
 
+.teste {
+  max-height: 400px;
+  width: auto;
+}
+
 .card-image {
   max-height: 160px;
 }
