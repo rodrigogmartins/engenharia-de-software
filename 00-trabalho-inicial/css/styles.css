@@ -1,33 +1,10 @@
-#alterar-dados {
-  margin-top: 10px;
-  margin-bottom: 50px;
-  margin-left: 41%;
-}
-
-#tabela-perfil {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 31%;
-}
-
 #tabela-produto {
   text-align: center;
 }
 
-#finalizar-compra {
-  margin-top: 10px;
-  margin-bottom: 50px;
-  margin-left: 39%;
-}
-
-#table-total {
-  margin-left: 31%;
-}
-
-#table-produtos {
+#tabela-produtos {
   margin-top: 20px;
   margin-bottom: 70px;
-  margin-left: 33%;
 }
 
 #btn-close-login {
