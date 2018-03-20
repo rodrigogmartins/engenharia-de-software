@@ -41,7 +41,7 @@
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                     <a class="mdl-navigation__link" href="produtos.html"> Produtos </a>
-                    <a class="mdl-navigation__link is-active" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="4"> Carrinho de Compras </span> </a>
+                    <a class="mdl-navigation__link is-active" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="3"> Carrinho de Compras </span> </a>
                     <a class="mdl-navigation__link" href="perfil.html"> Perfil/Login </a>
                     <a class="mdl-navigation__link" href="sobre.html"> Sobre </a>
                 </nav>
@@ -50,48 +50,70 @@
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                 <a class="mdl-navigation__link" href="produtos.html"> Produtos </a>
-                <a class="mdl-navigation__link is-active" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="4"> Carrinho de Compras </span> </a>
+                <a class="mdl-navigation__link is-active" href="carrinhocompras.html"> <span class="mdl-badge" data-badge="3"> Carrinho de Compras </span> </a>
                 <a class="mdl-navigation__link" href="perfil.html"> Perfil/Login </a>
                 <a class="mdl-navigation__link" href="sobre.html"> Sobre </a>
             </nav>
         </div>
+
         <main class="mdl-layout__content">
             <div class="mdl-grid portfolio-max-width portfolio-contact">
-                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Contact</h2>
-                    </div>
-                    <div class="mdl-card__media">
-                        <img class="article-image" src=" images/contact-image.jpg" border="0" alt="">
-                    </div>
-                    <div class="mdl-card__supporting-text">
-                        <p>
-                            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                        </p>
-                        <p>
-                            Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet.
-                        </p>
-                        <form action="#" class="">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" pattern="[A-Z,a-z, ]*" type="text" id="Name">
-                                <label class="mdl-textfield__label" for="Name">Name...</label>
-                                <span class="mdl-textfield__error">Letters and spaces only</span>
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" id="Email">
-                                <label class="mdl-textfield__label" for="Email">Email...</label>
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <textarea class="mdl-textfield__input" type="text" rows="5" id="note"></textarea>
-                                <label class="mdl-textfield__label" for="note">Enter note</label>
-                            </div>
-                            <p>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-                                    Submit
-                                </button>
-                            </p>
-                        </form>
-                    </div>
+                
+                <table id="table-produtos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric"> Produto </th>
+                            <th> Quantidade </th>
+                            <th> Preço UN. </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> Maconha </td>
+                            <td id="tabela-produto"> 2 </td>
+                            <td> R$ 10,00 </td>
+                        </tr>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> MDMA </td>
+                            <td id="tabela-produto"> 3 </td>
+                            <td> R$ 50,00 </td>
+                        </tr>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> LSD </td>
+                            <td id="tabela-produto"> 1 </td>
+                            <td> R$ 80,00 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table id="table-total" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                            <th id="tabela-produto" class="mdl-data-table__cell--non-numeric"> Produto </th>
+                            <th> Quantidade </th>
+                            <th> Preço UN. </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> SUB-TOTAL </td>
+                            <td id="tabela-produto"> 6 </td>
+                            <td> R$ 250,00 </td>
+                        </tr>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> DESCONTOS </td>
+                            <td id="tabela-produto"> 10% </td>
+                            <td> R$ 25,00 </td>
+                        </tr>
+                        <tr>
+                            <td id="tabela-produto" class="mdl-data-table__cell--non-numeric"> VALOR TOTAL </td>
+                            <td id="tabela-produto"> 6 </td>
+                            <td> R$ 225,00 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="finalizar-compra" class="mdl-card__actions">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="#"> Finalizar Compra </a>
                 </div>
             </div>
 

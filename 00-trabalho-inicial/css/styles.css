@@ -1,3 +1,22 @@
+#tabela-produto {
+  text-align: center;
+}
+
+#finalizar-compra {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-left: 39%;
+}
+
+#table-total {
+  margin-left: 31%;
+}
+
+#table-produtos {
+  margin-bottom: 70px;
+  margin-left: 33%;
+}
+
 #btn-close-login {
   float: right;
 }
