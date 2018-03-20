@@ -1,7 +1,7 @@
 window.onpageshow = function() {
     var snackbarContainer = document.querySelector('#demo-toast-example');
     var data = {
-        message: 'Todos os produtos extraidos são de pessoas criadas em cativeiro exclusivamente para isso, ou seja, nunca beberam e sempre fizeram dietas restritas, com o objetivo de manter nossos produtos os mais saudáveis.',
+        message: 'Nossos os produtos são extraidos de pessoas que, nunca beberam e sempre fizeram dietas restritas, por isso temos os produtos mais puros.',
         timeout: 6000
     };
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
