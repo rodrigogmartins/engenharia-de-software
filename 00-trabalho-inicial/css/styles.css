@@ -1,3 +1,7 @@
+#avaliacoes {
+  margin-bottom: 80px;
+}
+
 #finalizar-compra {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -27,6 +31,10 @@
 
 #quantidade:hover {
   background-color: #eeeeee;
+}
+
+.demo-list-three {
+  width: 650px;
 }
 
 .teste {
