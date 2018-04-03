@@ -60,5 +60,5 @@ function update(request) {
 
 function fromServer(request){
   //this is the fallback if it is not in the cahche to go to the server and get it
-return fetch(request).then(function(response){ return response})
+  return fetch(request).then(function(response){ return response})
 }
