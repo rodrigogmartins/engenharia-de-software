@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-v1';
+var CACHE_NAME = 'static-v1';
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
@@ -6,8 +6,7 @@ self.addEventListener('install', function (event) {
       return cache.addAll([
         '/',
         '/index.html',
-        '/css/styles.css',
-        '/manifest.json'
+        '/css/styles.css'
       ]);
     })
   )
