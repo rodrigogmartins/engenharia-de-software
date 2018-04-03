@@ -1,15 +1,9 @@
 {
-    "name": "BlackMarket",
-    "short_name": "BlackMarket",
-    "theme_color": "#741e2d",
-    "background_color": "#741e2d",
-    "display": "standalone",
-    "start_url": "/",
-    "icons": [
-      {
-        "src": "images/logo.png",
-        "sizes": "72x72",
-        "type": "image/png"
-      }
-    ]
-  }
+  "name": "BlackMarket",
+  "short_name": "BlackMarket",
+  "theme_color": "#741e2d",
+  "background_color": "#741e2d",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/https://github.com/rodrigogmartins/engenharia-de-software/tree/master/00-trabalho-inicial"
+}
