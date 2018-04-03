@@ -1,11 +1,11 @@
 {
-  "name": "BlackMarket",
-  "short_name": "BlackMarket",
+  "name": "Black Market",
+  "short_name": "blackmarket",
   "theme_color": "#741e2d",
   "background_color": "#741e2d",
   "display": "fullscreen",
   "scope": "/",
-  "start_url": "/https://github.com/rodrigogmartins/engenharia-de-software/tree/master/00-trabalho-inicial",
+  "start_url": "https://github.com/rodrigogmartins/engenharia-de-software/tree/master/00-trabalho-inicial",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
