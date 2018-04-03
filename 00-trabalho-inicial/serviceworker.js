@@ -1,37 +1,64 @@
-var CACHE_NAME = 'static-v2';
+//This is the service worker with the Cache-first network
 
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        'css/styles.css',
-        '/manifest.json'
-      ]);
-    })
-  )
-});
+var CACHE = 'pwabuilder-precache10';
+var precacheFiles = [
+      /* Add an array of files to precache for your app */
+    ];
 
-self.addEventListener('activate', function activator(event) {
-  event.waitUntil(
-    caches.keys().then(function (keys) {
-      return Promise.all(keys
-        .filter(function (key) {
-          return key.indexOf(CACHE_NAME) !== 0;
-        })
-        .map(function (key) {
-          return caches.delete(key);
-        })
-      );
-    })
+//Install stage sets up the cache-array to configure pre-cache content
+self.addEventListener('install', function(evt) {
+  console.log('The service worker is being installed.');
+  evt.waitUntil(precache().then(function() {
+    console.log('[ServiceWorker] Skip waiting on install');
+      return self.skipWaiting();
+
+  })
   );
 });
 
-self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
-      return cachedResponse || fetch(event.request);
-    })
-  );
+
+//allow sw to control of current page
+self.addEventListener('activate', function(event) {
+console.log('[ServiceWorker] Claiming clients for current page');
+      return self.clients.claim();
+
 });
+
+self.addEventListener('fetch', function(evt) {
+  console.log('The service worker is serving the asset.'+ evt.request.url);
+  evt.respondWith(fromCache(evt.request).catch(fromServer(evt.request)));
+  evt.waitUntil(update(evt.request));
+});
+
+
+function precache() {
+  return caches.open(CACHE).then(function (cache) {
+    return cache.addAll(precacheFiles);
+  });
+}
+
+
+function fromCache(request) {
+  //we pull files from the cache first thing so we can show them fast
+  return caches.open(CACHE).then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      return matching || Promise.reject('no-match');
+    });
+  });
+}
+
+
+function update(request) {
+  //this is where we call the server to get the newest version of the 
+  //file to use the next time we show view
+  return caches.open(CACHE).then(function (cache) {
+    return fetch(request).then(function (response) {
+      return cache.put(request, response);
+    });
+  });
+}
+
+function fromServer(request){
+  //this is the fallback if it is not in the cahche to go to the server and get it
+return fetch(request).then(function(response){ return response})
+}
