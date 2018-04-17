@@ -12,7 +12,26 @@ var precacheFiles = [
   '/alterardados.html',
   '/js/main.js',
   '/js/produto.js',
+  '/js/material.min.js',
   '/css/styles.css',
+  '/css/material.grey-pink.min.css',
+  '/images/bala.jpg',
+  '/images/coracao.png',
+  '/images/figado.png',
+  '/images/footer-background.png',
+  '/images/header-bg.jpg',
+  '/images/heroina.jpeg',
+  '/images/logo-sobre.jpg',
+  '/images/logo.png',
+  '/images/lsd.jpg',
+  '/images/meth.jpg',
+  '/images/icons/icon-72x72.png',
+  '/images/icons/icon-96x96.png',
+  '/images/icons/icon-128x128.png',
+  '/images/icons/icon-144x144.png',
+  '/images/icons/icon-152x152.png',
+  '/images/icons/icon-384x384.png',
+  '/images/icons/icon-512x512.png'
 ];
 
 //Install stage sets up the cache-array to configure pre-cache content
