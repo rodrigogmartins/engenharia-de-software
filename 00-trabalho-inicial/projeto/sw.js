@@ -1,4 +1,4 @@
-const CACHE = 'pwabuilder-precache';
+const CACHE = 'pwabuilder-precache1';
 const precacheFiles = [
     '/',
     '/index.html',
