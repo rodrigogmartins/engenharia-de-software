@@ -2,7 +2,7 @@
 // This is the "Offline copy of pages" wervice worker
 // Install stage sets up the index page (home page) in the cahche and opens a new cache
 self.addEventListener('install', function(event) {
-    let indexPage = new Request('index.html');
+    const indexPage = new Request('index.html');
     event.waitUntil(
         fetch(indexPage).then(function(response) {
             caches.open('pwabuilder-offline').then(function(cache) {
@@ -35,9 +35,8 @@ self.addEventListener('install', function(event) {
                 ]);
             });
         })
-    );
+    )
 });
-
 
 self.addEventListener('fetch', function(event) {
     const updateCache = function(request) {
@@ -54,7 +53,6 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         fetch(event.request).catch(function(error) {
             console.log('[PWA Builder] Network request Failed. Serving content from cache: ' + error);
-
             // Check to see if you have it in the cache
             // Return response
             // If not in the cache, then return error page

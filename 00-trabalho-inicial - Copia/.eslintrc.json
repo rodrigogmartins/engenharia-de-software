@@ -1,0 +1,30 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"      
+    },
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "google"
+    ],
+    "rules": {
+        "require-jsdoc": "off",
+        "no-console": "off",
+        "comma-dangle": "off",
+        "indent": ["error", 4],
+        "no-alert": "error",
+        "max-lines": ["warn", 100],
+        "max-depth": ["warn", 4],
+        "max-nested-callbacks": ["warn", 4],
+        "max-params": ["warn", 4],
+        "max-statements": ["warn", 20],
+        "prefer-const": "warn",
+        "eqeqeq": "warn",
+        "no-magic-numbers": "warn",
+        "camelcase": "warn"
+    }
+}
