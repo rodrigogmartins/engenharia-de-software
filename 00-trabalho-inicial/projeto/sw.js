@@ -1,86 +1,69 @@
-const CACHE = 'pwabuilder-precache';
-const precacheFiles = [
-    '/',
-    '/index.html',
-    '/perfil.html',
-    '/produtos.html',
-    '/produto.html',
-    '/sobre.html',
-    '/cadastro.html',
-    '/avaliacoes.html',
-    '/carrinhocompras.html',
-    '/alterardados.html',
-    '/js/main.js',
-    '/js/produto.js',
-    '/js/material.min.js',
-    '/css/styles.css',
-    '/css/material.grey-pink.min.css',
-    '/images/bala.jpg',
-    '/images/coracao.png',
-    '/images/figado.png',
-    '/images/footer-background.png',
-    '/images/header-bg.jpg',
-    '/images/heroina.jpeg',
-    '/images/logo-sobre.jpg',
-    '/images/logo.png',
-    '/images/lsd.jpg',
-    '/images/meth.jpg',
-    '/images/icons/icon-72x72.png',
-    '/images/icons/icon-96x96.png',
-    '/images/icons/icon-128x128.png',
-    '/images/icons/icon-144x144.png',
-    '/images/icons/icon-152x152.png',
-    '/images/icons/icon-384x384.png',
-    '/images/icons/icon-512x512.png'
-];
-
-self.addEventListener('install', function(evt) {
-    console.log('The service worker is being installed.');
-    evt.waitUntil(precache().then(function() {
-        console.log('[ServiceWorker] Skip waiting on install');
-        return self.skipWaiting();
-    })
+// NEW
+// This is the "Offline copy of pages" wervice worker
+// Install stage sets up the index page (home page) in the cahche and opens a new cache
+self.addEventListener('install', function(event) {
+    let indexPage = new Request('index.html');
+    event.waitUntil(
+        fetch(indexPage).then(function(response) {
+            caches.open('pwabuilder-offline').then(function(cache) {
+                console.log('[PWA Builder] Cached index page during Install' + response.url);
+                return cache.addAll([
+                    '/projeto/',
+                    '/projeto/index.html',
+                    '/projeto/perfil.html',
+                    '/projeto/produtos.html',
+                    '/projeto/produto.html',
+                    '/projeto/sobre.html',
+                    '/projeto/cadastro.html',
+                    '/projeto/avaliacoes.html',
+                    '/projeto/carrinhocompras.html',
+                    '/projeto/alterardados.html',
+                    '/projeto/images/bala.jpg',
+                    '/projeto/images/coracao.png',
+                    '/projeto/images/figado.png',
+                    '/projeto/images/footer-background.png',
+                    '/projeto/images/header-bg.jpg',
+                    '/projeto/images/heroina.jpeg',
+                    '/projeto/images/logo-sobre.jpg',
+                    '/projeto/images/logo.png',
+                    '/projeto/images/lsd.jpg',
+                    '/projeto/images/meth.jpg',
+                    '/projeto/images/rim.jpg',
+                    '/projeto/images/sangue.jpeg',
+                    '/projeto/images/weed.jpg',
+                    '/projeto/images/icons/icon-72x72.png'
+                ]);
+            });
+        })
     );
 });
 
-self.addEventListener('activate', function(event) {
-    console.log('[ServiceWorker] Claiming clients for current page');
-    return self.clients.claim();
-});
 
-self.addEventListener('fetch', function(evt) {
-    console.log('The service worker is serving the asset.' + evt.request.url);
-    evt.respondWith(fromCache(evt.request).catch(fromServer(evt.request)));
-    evt.waitUntil(update(evt.request));
-});
-
-
-function precache() {
-    return caches.open(CACHE).then(function(cache) {
-        return cache.addAll(precacheFiles);
-    });
-}
-
-
-function fromCache(request) {
-    return caches.open(CACHE).then(function(cache) {
-        return cache.match(request).then(function(matching) {
-            return matching || Promise.reject('no-match');
+self.addEventListener('fetch', function(event) {
+    const updateCache = function(request) {
+        return caches.open('pwabuilder-offline').then(function(cache) {
+            return fetch(request).then(function(response) {
+                console.log('[PWA Builder] add page to offline' + response.url);
+                return cache.put(request, response);
+            });
         });
-    });
-}
+    };
 
+    event.waitUntil(updateCache(event.request));
 
-function update(request) {
-    return caches.open(CACHE).then(function(cache) {
-        return fetch(request).then(function(response) {
-            return cache.put(request, response);
-        });
-    });
-}
+    event.respondWith(
+        fetch(event.request).catch(function(error) {
+            console.log('[PWA Builder] Network request Failed. Serving content from cache: ' + error);
 
-function fromServer(request) {
-    return fetch(request).then(function(response) {
-        return response;
-    });
-}
+            // Check to see if you have it in the cache
+            // Return response
+            // If not in the cache, then return error page
+            return caches.open('pwabuilder-offline').then(function(cache) {
+                return cache.match(event.request).then(function(matching) {
+                    const report = !matching || matching.status == 404 ? Promise.reject('no-match') : matching;
+                    return report;
+                });
+            });
+        })
+    );
+});
