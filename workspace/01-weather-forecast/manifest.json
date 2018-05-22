@@ -5,7 +5,7 @@
     "background_color": "#3449ff",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "https://github.com/rodrigogmartins/engenharia-de-software/tree/master/workspace/01-weather-forecast",
+    "start_url": "https://rodrigogmartins.github.io/engenharia-de-software/workspace/01-weather-forecast/",
     "icons": [
         {
             "src": "image/icons/icon-72x72.png",
