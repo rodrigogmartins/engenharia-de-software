@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+span {
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+ul {
+    text-align: center;
+}
+
+th {
+    max-height: 46.8px;
+}
+
+
+.pagination > li > a{
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+.pagination > li.active > a, nav {
+    background-color: rgb(52, 73, 255);
+}
+
+#previsao {
+    background-color: white;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    box-shadow: 0px 0px 10px #000;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+#texto {
+    font-size: 0.8em;
+    text-align: center;
+    background-color: white;
+    padding-left: 1.2em;
+    padding-bottom: 1.2em;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-y: scroll;
+}
