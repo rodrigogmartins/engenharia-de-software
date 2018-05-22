@@ -7,6 +7,7 @@ const HoraFinalTarde = 17;
 const HoraInicioNoite = 18;
 const HoraFinalNoite = 5;
 const htmlUL = document.querySelector('ul');
+const refreshLocation = document.querySelector('#refresh-location');
 let page = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,12 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let period = getPeriod();
         showWeatherForecast(period, page);
     });
+
+    refreshLocation.addEventListener('click', getCurrentPosition);
 });
 
 const showWeatherForecast = function(period) {
     const jsonPrevisao = JSON.parse(localStorage.getItem('previsao'));
     const imagemPrevisao = document.querySelector('#imagem-previsao');
-    imagemPrevisao.setAttribute('src', `./realistic/250px/${
+    imagemPrevisao.setAttribute('src', `./image/250px/${
         eval(`jsonPrevisao.data[${page}].text_icon.icon.${period}`)}.jpg`);
     const spanTitulo = document.querySelector('span#titulo');
     spanTitulo.textContent = buildForecastTitle(jsonPrevisao, period);
