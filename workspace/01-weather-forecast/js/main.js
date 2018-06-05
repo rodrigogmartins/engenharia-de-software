@@ -1,17 +1,21 @@
-import {getCurrentPosition} from './forecast.js';
+import {getCurrentPosition, getCityId} from './forecast.js';
 
 const HoraInicioManha = 6;
 const HoraFinalManha = 11;
 const HoraInicioTarde = 12;
 const HoraFinalTarde = 17;
 const HoraInicioNoite = 18;
-const HoraFinalNoite = 5;
+const HoraFinalNoite = 23;
+const HoraInicioMadrugada = 0;
+const HoraFinalMadrugada = 5;
 const htmlUL = document.querySelector('ul');
 const refreshLocation = document.querySelector('#refresh-location');
 let page = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
     getCurrentPosition();
+    getCityId(localStorage.getItem('cidade'), localStorage.getItem('estado'));
+
     let period = getPeriod();
     showWeatherForecast(period, page);
 
@@ -84,9 +88,11 @@ const tirarAnoData = function(data) {
 };
 
 const getPeriod = function() {
-    let date = new Date();
-    let horas = date.getHours();
+    const date = new Date();
+    const horas = date.getHours();
     if (horas >= HoraInicioManha && horas <= HoraFinalManha) return 'morning';
     if (horas >= HoraInicioTarde && horas <= HoraFinalTarde) return 'afternoon';
-    if (horas >= HoraInicioNoite && horas <= HoraFinalNoite) return 'night';
+    if (horas >= HoraInicioNoite && horas <= HoraFinalNoite ||
+        horas >= HoraInicioMadrugada
+        && horas <= HoraFinalMadrugada) return 'night';
 };

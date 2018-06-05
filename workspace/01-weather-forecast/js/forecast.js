@@ -12,11 +12,16 @@ export const getCurrentPosition = function() {
     navigator.geolocation.getCurrentPosition(function(posicao) {
         const latitude = posicao.coords.latitude;
         const longitude = posicao.coords.longitude;
-        ajax(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`, (e) => getCityId(JSON.parse(e.target.response).address.city, ESTADOS.get(JSON.parse(e.target.response).address.state)));
+        ajax(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`, function(e) {
+            localStorage.setItem('cidade',
+                JSON.parse(e.target.response).address.city);
+            localStorage.setItem('estado',
+                ESTADOS.get(JSON.parse(e.target.response).address.state));
+        });
     });
 };
 
-const getCityId = (cityName, state) => ajax(`https://apiadvisor.climatempo.com.br/api/v1/locale/city?name=${cityName}&state=${state}&token=${CLIMATEMPOTOKEN}`, (e) => getWeatherForecast(JSON.parse(e.target.response)[0].id));
+export const getCityId = (cityName, state) => ajax(`https://apiadvisor.climatempo.com.br/api/v1/locale/city?name=${cityName}&state=${state}&token=${CLIMATEMPOTOKEN}`, (e) => getWeatherForecast(JSON.parse(e.target.response)[0].id));
 
 const getWeatherForecast = (cityId) =>
     ajax(`https://apiadvisor.climatempo.com.br/api/v1/forecast/locale/${cityId}/days/15?token=${CLIMATEMPOTOKEN}`,
